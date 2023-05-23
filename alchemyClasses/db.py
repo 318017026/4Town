@@ -108,8 +108,7 @@ class Venta(db.Model):
     id_pedido = db.Column(db.Integer, db.ForeignKey('Pedido.id'), nullable = False)
     id_bebida = db.Column(db.Integer, db.ForeignKey('Bebida.id'), nullable = False)
 
-    def __init__(self, id, id_pedido, id_bebida):
-        self.id = id
+    def __init__(self, id_pedido, id_bebida):
         self.id_pedido = id_pedido
         self.id_bebida = id_bebida
 
