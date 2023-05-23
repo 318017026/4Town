@@ -2,7 +2,6 @@ class Administrador(Usuario):
     
     #El formato de búsqueda deber ser de tipo "nombre=Maria, apeidoP=Rodriguez"
     def consulta_cliente(busqueda):
-        busqueda = busqueda.lower()
         busqueda = busqueda.split(", ")
     
         #Establecer conexion con la base de datos
