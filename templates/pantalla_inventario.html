@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<head>
+    <title>Inventario</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="static/bootstrap.min.css" rel="stylesheet" media="screen">
+</head>
+<style>
+    table, th, td {
+      border:1px solid black;
+    }
+</style>
+<body>
+    <h1>Inventario</h1>
+    <br>
+    <h2>Bebidas</h2>
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>Nombre</th>
+            <th>Descripción</th>
+            <th>Costo</th>
+            <th>Ventas</th>
+            <th>Modificar</th>
+        </tr>
+        {% for bebida, producto in bebidas %}
+        <tr>
+            <td>{{ producto.id }}</td>
+            <td>{{ producto.nombre }}</td>
+            <td>{{ producto.descripcion }}</td>
+            <td>{{ producto.costo }}</td>
+            <td>{{ bebida.ventas }}</td>
+            <td>
+                <form action="/inventario/modify" method="post" style="display: inline;">
+                    <input type="hidden" id="id" name="id" value="{{ producto.id }}">
+                    <button type="submit" value="Modificar">Modificar</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    <br>
+    <form action="/inventario/add_bebida" method="get">
+        <button type="submit" value="Agregar bebida">Agregar bebida</button>
+    </form>
+    <br>
+    <h2>Insumos</h2>
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>Nombre</th>
+            <th>Descripción</th>
+            <th>Costo</th>
+            <th>piezas</th>
+            <th>Modificar</th>
+        </tr>
+        {% for insumo, producto in insumos %}
+        <tr>
+            <td>{{ producto.id }}</td>
+            <td>{{ producto.nombre }}</td>
+            <td>{{ producto.descripcion }}</td>
+            <td>{{ producto.costo }}</td>
+            <td>{{ insumo.piezas }}</td>
+            <td>
+                <form action="/inventario/modify" method="post" style="display: inline;">
+                    <input type="hidden" id="id" name="id" value="{{ producto.id }}">
+                    <button type="submit" value="Modificar">Modificar</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    <br>
+    <form action="/inventario/add_insumo" method="get">
+        <button type="submit" value="Agregar insumo">Agregar insumo</button>
+    </form>
+    <br>
+    <br><br>
+    {% for message in get_flashed_messages() %}
+         <div class="flash">{{ message }}</div>
+    {% endfor %}
+</body>

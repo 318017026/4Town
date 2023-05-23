@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Modificar insumo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="static/bootstrap.min.css" rel="stylesheet" media="screen">
+</head>
+<body>
+    <h1>Modificar insumo {{ producto.id }}</h1>
+        <br>
+        <form action="/inventario/modify_insumo" method="post">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" value="{{ producto.nombre }}" required><br><br>
+            
+            <label for="descripcion">Descripcion:</label>
+            <textarea id="descripcion" name="descripcion" rows="4" cols="50" required>{{ producto.descripcion }}</textarea><br><br>
+
+            <label for="costo">Costo:</label>
+            <input type="number" id="costo" name="costo" min="0" value="{{ producto.costo }}" step=".01" required><br><br>
+            <input type="number" id="piezas" name="piezas" min="0" value="{{ insumo.piezas }}" step="1" required><br><br>
+            <input type="hidden" id="id" name="id" value="{{ producto.id }}">
+            <input type="submit" value="Registrar">
+        </form>
+        <br>
+        {% for message in get_flashed_messages() %}
+         <div class="flash">{{ message }}</div>
+        {% endfor %}
+</body>
+</html>
