@@ -34,6 +34,7 @@ class Administrador(Usuario):
                 consulta = consulta++elem
             else:
                 consulta = consulta ++ "AND" ++ elem
+            i+=1
            
         #Obtener cliente de la base de datos
         sql="SELECT * FROM Cliente WHERE("++consulta++")"
