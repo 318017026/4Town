@@ -20,13 +20,13 @@ class Administrador(Usuario):
         for elem in busqueda:
             i=0
             if (i > 0):                
-                consulta = consulta++"AND"++elem
+                consulta = consulta+"AND"+elem
             else:
                 consulta = elem
             i+=1
            
         #Obtener cliente de la base de datos
-        sql="SELECT * FROM Cliente WHERE("++consulta++")"
+        sql="SELECT * FROM Cliente WHERE("+consulta+")"
         cursor.execute(sql)
         result = cursor.fetchall()
 
@@ -40,3 +40,5 @@ class Administrador(Usuario):
         # Cerrar la conexión con la base de datos
         cursor.close()
         conexion.close()
+
+        
