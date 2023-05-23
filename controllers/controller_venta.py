@@ -21,13 +21,6 @@ def venta():
 def atender():
     id_pedido = request.form.get('id')
     pedido = getPedido(id_pedido)
-    return render_template('atender_pedido.html', pedido = pedido)
-
-@venta_bp.route('/reportar', methods=['POST'])
-def reportar():
-    id_pedido = request.form.get('id')
-    agregarVendedor(session.get('usuario'))
-    pedido = getPedido(id_pedido)
     atenderPedido(id_pedido, pedido.id_bebida)
     flash('Pedido reportado exitosamente')
     return "Pedido reportado exitosamente"

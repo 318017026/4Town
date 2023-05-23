@@ -29,7 +29,7 @@
             <td>{{ pedido.id_cliente }}</td>
             <td>{{ pedido.id_vendedor }}</td>
             <td>{{ pedido.id_bebida }}</td>
-            <td>{{ pedido.id_direccion }}</td>
+            <td>{{ pedido.direccion }}</td>
             <td>{{ pedido.metodoPago }}</td>
             <td>{{ pedido.fecha }}</td>
             <td>{{ pedido.total }}</td>
@@ -42,11 +42,6 @@
         </tr>
         {% endfor %}
     </table>
-    <br>
-    <form action="/inventario/add_bebida" method="get">
-        <button type="submit" value="Agregar bebida">Agregar bebida</button>
-    </form>
-    <br>
     <br><br>
     {% for message in get_flashed_messages() %}
          <div class="flash">{{ message }}</div>

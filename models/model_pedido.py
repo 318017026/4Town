@@ -6,7 +6,7 @@ def enlistaPedidos():
     return Pedido.query.all()
 
 def crearPedido(id_cliente, id_bebida, direccion, metodoPago, total):
-    nuevo_predido = Pedido(id_cliente, id_bebida, direccion, metodoPago, datetime.utcnow, total)
+    nuevo_predido = Pedido(id_cliente, id_bebida, direccion, metodoPago, datetime.now().strftime('%Y-%m-%d'), total)
     db.session.add(nuevo_predido)
     db.session.commit()
 
@@ -16,4 +16,4 @@ def agregarVendedor(id_pedido, id_vendedor):
     db.session.commit()
 
 def getPedido(id_pedido):
-    pedido = Pedido.query.filter(Pedido.id == id_pedido).first()
+    return Pedido.query.filter(Pedido.id == id_pedido).first()

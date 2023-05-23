@@ -30,8 +30,8 @@ def modify():
         flash("Error: no se ha seleccionado un producto")
         return redirect(url_for('inventario.inventario'))
     producto = getProducto(id_producto)
-    if isBebida(id_producto):
-        return render_template('modificar_bebida.html', producto = producto)
+    #if isBebida(id_producto):
+    #    return render_template('modificar_bebida.html', producto = producto)
     return render_template('modificar_insumo.html', producto = producto, insumo = getInsumo(id_producto))
 
 @inventario_bp.route('/modify_bebida', methods=['POST'])

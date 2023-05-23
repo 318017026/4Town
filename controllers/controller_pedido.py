@@ -6,32 +6,34 @@ from flask import Blueprint, flash, render_template, request, redirect, url_for,
 
 pedido_bp = Blueprint('pedido', __name__, url_prefix='/pedido')
 
-@pedido_bp.route('/', methods=['POST'])
+@pedido_bp.route('/', methods=['GET','POST'])
 def pedido():
-    if session.get('id_usuario') == None: # No se ha iniciado sesión
+    if session.get('usuario') == None: # No se ha iniciado sesión
         flash("Error: no se ha iniciado sesión")
         return "No se ha iniciado sesión" # Redirigir a iniciar sesión
-    id_producto = request.get('producto')
+    id_producto = session.get('producto')
     if id_producto == None:
         flash("Error: no se ha seleccionado producto") # Debe conectarse con el de visualizar producto
         return "No se ha seleccionado producto"
     producto = getProducto(id_producto)
+    return render_template('hacer_pedido.html', producto = producto)
     
-@pedido_bp.route('/', methods=['POST'])
+@pedido_bp.route('/hacer_pedido', methods=['POST'])
 def hacer_pedido():
-    if session.get('id_usuario') == None: # No se ha iniciado sesión
+    if session.get('usuario') == None: # No se ha iniciado sesión
         flash("Error: no se ha iniciado sesión")
         return "No se ha inciado sesión" # Redirigir a inciar sesión
-    id_producto = request.get('producto')
+    id_producto = request.form.get('producto')
     if id_producto == None:
         flash("Error: no hay producto seleccionado")
         return "No hay producto seleccionado"
-    cliente = getCliente(session.get('id_usuario'))
+    cliente = getCliente(session.get('usuario'))
     id_producto = request.form.get('producto')
     metodoPago = request.form.get('metodoPago')
     producto = getProducto(id_producto)
     crearPedido(cliente.id, 
                 id_producto,
+                cliente.direccion,
                 metodoPago,
                 producto.costo)
     flash("Pedido creado exitosamente")

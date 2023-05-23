@@ -19,9 +19,21 @@ db.init_app(app)
 
 @app.route('/', methods = ['POST','GET'])
 def index():
+    ###
+    # Caso de uso realizar inventario
     session['usuario'] = 'Ejemplo'
-    session['ventas'] = 'si'
-    return redirect(url_for('venta.venta'))
+    session['venta'] = 'si'
+    return redirect(url_for('inventario.inventario'))
+    ###
+    # Caso de uso hacer pedido
+    # session['usuario'] = 2
+    # session['producto'] = 8
+    # return redirect(url_for('pedido.pedido'))
+    ###
+    # Caso de uso reportar venta
+    # session['usuario'] = 1
+    # session['venta'] = 'si'
+    # return redirect(url_for('venta.venta'))
 
 if __name__ == '__main__':
     app.run(host = "localhost", port = 8000, debug = True)
