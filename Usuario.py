@@ -36,8 +36,11 @@ class Usuario:
         # Ejecutar la consulta SQL
         cursor.execute(sql, val)
 
+        id = cursor.lastrowid
         # Confirmar los cambios en la base de datos
         db.commit()
 
         # Cerrar la conexión con la base de datos
         db.close()
+
+        return id

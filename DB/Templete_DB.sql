@@ -20,7 +20,8 @@ CREATE TABLE Administrador (
 );
 CREATE TABLE Vendedor (
     id INT PRIMARY KEY AUTO_INCREMENT,
-    FOREIGN KEY (id) REFERENCES Usuario(id)
+    userId INT 
+    FOREIGN KEY (userId) REFERENCES Usuario(id)
     -- Pueden agregar constraints o atributos
 );
 CREATE TABLE Cliente (
