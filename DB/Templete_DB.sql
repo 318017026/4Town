@@ -57,11 +57,15 @@ CREATE TABLE Insumo(
 CREATE TABLE Pedido(
 	id INT PRIMARY KEY AUTO_INCREMENT,
     id_cliente INT NOT NULL,
-    id_vendedor INT NOT NULL,
+    id_vendedor INT, -- Lo hice posiblemente null para que después un vendedor lo pueda atender
+    id_bebida INT NOT NULL, -- para guardar la bebida que se compró
     direccion VARCHAR(100) NOT NULL,
     metodoPago VARCHAR(50) NOT NULL,
     fecha date NOT NULL,
-    total decimal(6,2)
+    total decimal(6,2) NOT NULL,
+    FOREIGN KEY (id_cliente) REFERENCES Cliente(id),
+    FOREIGN KEY (id_vendedor) REFERENCES Vendedor(id),
+    FOREIGN KEY (id_bebida) REFERENCES Bebida(id)
     -- Pueden agregar constraints o atributos
 );
 

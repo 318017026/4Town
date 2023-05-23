@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Realizar pedido</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="static/bootstrap.min.css" rel="stylesheet" media="screen">
+    </head>
+    <body>
+        <h1>Realizar pedido</h1>
+        <br>
+        <h2>Comprando bebida {{ producto.nombre }}</h2>
+        <br>
+        ¿Estás seguro de continuar con la compra?
+        <form action="/hacer_pedido" method="post">
+            <label for="metodoPago">Método de pago:</label>
+                <select id="metodoPago" name="metodoPago">
+                    <option value="efectivo">Efectivo</option>
+                    <option value="tarjeta">Tajeta</option>
+                </select>
+            <input type="hidden" id="producto" name="producto" value="{{ producto.id }}">
+            <button type="submit" value="Confirmar">Confirmar</button>
+        </form>
+    </body>
+</html>

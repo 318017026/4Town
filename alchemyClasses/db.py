@@ -86,18 +86,17 @@ class Insumo(db.Model):
 class Pedido(db.Model):
     __tablename__='Pedido'
     id = db.Column(db.Integer, primary_key = True)
-    id_cliente = db.Column(db.Integer, nullable = False)
-    id_vendedor = db.Column(db.Integer, nullable = False)
+    id_cliente = db.Column(db.Integer, db.ForeignKey('Cliente.id'), nullable = False)
+    id_vendedor = db.Column(db.Integer, db.ForeignKey('Vendedor.id'), nullable = True)
+    id_bebida = db.Column(db.Integer, db.ForeignKey('Bebida.id'), nullable = False)
     direccion = db.Column(db.String(100), nullable = False)
     metodoPago = db.Column(db.String(50), nullable = False)
     fecha = db.Column(db.Date, nullable = False)
-    total = db.Column(db.Numeric(6,2), nullable = True)
+    total = db.Column(db.Numeric(6,2), nullable = False)
 
-
-    def __init__(self, id, id_cliente, id_vendedor, direccion, metodoPago, fecha, total):
-        self.id = id
+    def __init__(self, id_cliente, id_bebida, direccion, metodoPago, fecha, total):
         self.id_cliente = id_cliente
-        self.id_vendedor = id_vendedor
+        self.id_bebida = id_bebida
         self.direccion = direccion
         self.metodoPago = metodoPago
         self.fecha = fecha
