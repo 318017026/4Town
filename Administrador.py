@@ -6,7 +6,7 @@ class Administrador(Usuario):
         busqueda = busqueda.split(", ")
     
         #Establecer conexion con la base de datos
-        db = mysql.connector.connect(
+        conexion = mysql.connector.connect(
             host="localhost",
             user="tu_usuario",
             password="tu_contraseña",
@@ -14,7 +14,7 @@ class Administrador(Usuario):
         )
 
         # Obtener un cursor para ejecutar consultas SQL
-        cursor = db.cursor()
+        cursor = conexion.cursor()
 
         consulta = ""
         for elem in busqueda:
@@ -27,11 +27,16 @@ class Administrador(Usuario):
            
         #Obtener cliente de la base de datos
         sql="SELECT * FROM Cliente WHERE("++consulta++")"
-        result = cursor.execute(sql)
+        cursor.execute(sql)
+        result = cursor.fetchall()
 
         #Mostrar resultado
-        for elem in result:
-            print(elem)
+        if result == []:
+            print("No se encontró ningún cliente para la búsqueda solicitada\n Si cree que se trata de un error, por favor revise que haya ingresado la búsqueda correctamente")
+        else:
+            for elem in result:
+                print(elem)
 
         # Cerrar la conexión con la base de datos
         cursor.close()
+        conexion.close()
