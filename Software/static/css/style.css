@@ -1,0 +1,44 @@
+body{
+  background: #000000 !important; 
+  font-family: 'Muli', sans-serif;
+  /*background-image: url('/static/images/back.png');*/
+  /*background-repeat: no-repeat;  No repetir la imagen */
+  /*background-size: cover;  Ajustar la imagen al tamaño del elemento */
+  /*background-position: center;  Centrar la imagen en el elemento */
+
+}
+h1{
+  color: #fff;
+  padding-bottom: 2rem;
+  font-weight: bold;
+}
+a{
+  color: #333;
+}
+a:hover{
+  color: #fc7100;
+  text-decoration: none;
+}
+.form-control:focus {
+    color: #000;
+    background-color: #fff;
+    border:2px solid #E8D426;
+    outline: 0;
+    box-shadow: none;
+}
+
+.btn{
+  background: #fc7100;
+  border: #fc7100;
+}
+.btn:hover {
+  background: #fc7100;
+  border: #fc7100;
+}
+.flash-message {
+  background-color: hsl(0, 0%, 100%); /* Color de fondo amarillo */
+  color: hsl(0, 100%, 47%); /* Color de texto blanco */
+  padding: 10px; /* Espaciado interno de 10px */
+  /* Otras propiedades de estilo según tus preferencias */
+}
+

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Successful Message</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      font-family: Arial, sans-serif;
+    }
+
+    .success-message {
+      text-align: center;
+      padding: 20px;
+      background-color: #e6f5e6;
+      border: 1px solid #b3e6b3;
+      border-radius: 5px;
+      font-size: 24px;
+      color: #008000;
+    }
+  </style>
+</head>
+<body>
+  <div class="success-message">
+    {% if session.get('user_id') != None %}
+    SOY CLIENTE {{nombre}} con cookie |  {{(g.user)}} || {{session.get("user_id")}}
+    {% endif %}
+    {% if session.get('user_id') == None %}
+    SOY CLIENTE {{nombre}} sin cookie |  {{(g.user)}} || {{session.get("user_id")}}
+    {% endif %}
+  </div>
+</body>
+</html>

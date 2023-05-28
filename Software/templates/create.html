@@ -1,0 +1,48 @@
+{%extends "barra_base.html"%}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Agregar Producto</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+{% block content %}
+<body>
+
+	<div class="container">
+		<h1>Agregar Producto</h1>
+		<form method="POST" action="{{url_for('createDrink.create')}}">
+			<div class="form-group">
+				<label for="nombre">Nombre:</label>
+				<input type="text" class="form-control" id="nombre" name="nombre" value = "{{request.form.nombre}}" required>
+				<div class="invalid-feedback">Por favor ingrese el nombre del producto</div>
+			</div>
+			<div class="form-group">
+				<label for="descripcion">Descripción:</label>
+				<textarea class="form-control" id="descripcion" name="descripcion" rows="3" value = "{{request.form.descripcion}}" required></textarea>
+				<div class="invalid-feedback">Por favor ingrese una descripción del producto</div>
+			</div>
+			<div class="form-group">
+				<label for="costo">Costo:</label>
+				<input type="number" step="0.01" class="form-control" id="costo" name="costo" value = "{{request.form.costo}}" required>
+				<div class="invalid-feedback">Por favor ingrese el costo del producto</div>
+			</div>
+			<button type="submit" class="btn btn-primary" onclick="checkTextArea()" >Guardar</button>
+		</form>
+	</div>
+	<script>
+		function checkTextArea() {
+		  const textarea = document.getElementById('descripcion');
+		  const textareaValue = textarea.value.trim();
+		  if (textareaValue === '') {
+			alert('Alerta: ¡El campo "Descripción" esta vacío! \n Acción abortada.');
+		  }
+		}
+	</script>		
+	<!-- Agregar más archivos JS de Bootstrap -->
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+</body>
+{% endblock %}
+</html>
