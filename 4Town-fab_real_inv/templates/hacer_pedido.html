@@ -4,14 +4,34 @@
     <title>Realizar pedido</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <style>
+        .centered {
+            margin: 0 auto;
+            max-width: 600px;
+        }
+    </style>
 </head>
 <body>
-    <div class="container">
+    <div class="centered">
         <h1>Realizar pedido</h1>
         <br>
-        <h2>Comprando bebida {{ producto.nombre }}</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Costo</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for bebida in bebidas %}
+                <tr>
+                    <td>{{ bebida.nombre }}</td>
+                    <td>{{ bebida.costo }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
         <br>
-        <p>¿Estás seguro de continuar con la compra?</p>
         <form action="/pedido/hacer_pedido" method="post">
             <div class="form-group">
                 <label for="metodoPago">Método de pago:</label>
@@ -20,8 +40,10 @@
                     <option value="tarjeta">Tarjeta</option>
                 </select>
             </div>
-            <input type="hidden" id="producto" name="producto" value="{{ producto.id }}">
-            <button type="submit" class="btn btn-primary">Confirmar</button>
+            {% for bebida in bebidas %}
+            <input type="hidden" name="bebidas[]" value="{{ bebida.id }}">
+            {% endfor %}
+            <button type="submit" class="btn btn-primary">Confirmar compra</button>
         </form>
     </div>
 

@@ -1,11 +1,10 @@
-from models.model_pedido import enlistaPedidos, agregarVendedor, getPedido
-from models.model_venta import atenderPedido
+from models.model_pedido import enlistaPedidosVendedor
 
 from flask import Blueprint, flash, render_template, request, redirect, url_for, session
 
 venta_bp = Blueprint('venta', __name__, url_prefix='/venta')
 
-@venta_bp.route('/', methods=['GET','POST'])
+@venta_bp.route('/', methods=['GET'])
 def venta():
     if session.get('usuario') == None:
         flash('Error: no se ha iniciado sesión')
@@ -13,14 +12,6 @@ def venta():
     if session.get('ventas') == None:
         flash('Error: no permitido')
         return "No permitido" # Redirigir a iniciar sesión o inicio de Usuario
-    if request.method == 'GET':
-        pedidos = enlistaPedidos()
-        return render_template('pantalla_pedidos.html', pedidos = pedidos)
-    
-@venta_bp.route('/atender', methods=['POST'])
-def atender():
-    id_pedido = request.form.get('id')
-    pedido = getPedido(id_pedido)
-    atenderPedido(id_pedido, pedido.id_bebida)
-    flash('Pedido reportado exitosamente')
-    return "Pedido reportado exitosamente"
+    pedidosDia = enlistaPedidosVendedor(session.get('usuario'), "dia")
+    pedidosSemana = enlistaPedidosVendedor(session.get('usuario'), "semana")
+    return render_template('pantalla_pedidos.html', pedidosDia = pedidosDia, pedidosSemana = pedidosSemana)
