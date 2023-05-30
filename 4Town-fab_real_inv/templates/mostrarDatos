@@ -1,0 +1,46 @@
+<form action="/perfil/{{users.id}}" method="POST" class="card bg-dark text-light">
+    <div class="card-body p-4">
+        <div class="mb-3">
+            <label for="Nombre(s)">Escribe tu(s) nombre(s)</label>
+            <h5>{{ users.nombre }}</h5>
+        </div>
+        <div class="mb-3">
+            <label for="Apellido Paterno">Escribe tu apellido paterno</label>
+            <h5>{{ users.apellidoP }}</h5>
+        </div>
+        <div class="mb-3">
+            <label for="Apellido Materno">Escribe tu apellido materno</label>
+            <h5>{{ users.apellidoM }}</h5>
+        </div>
+        <div class="mb-3">
+            <label for="Fecha de Nacimiento">Escribe tu Fecha de Nacimiento en forma AAAAMMDD</label>
+            <h5>{{ users.fechaNacimiento }}</h5>
+        </div>
+        <div class="mb-3">
+            <label for="Correo Electronico">Escribe tu Correo Electronico</label>
+            <h5>{{ users.correo }}</h5>
+        </div>
+        <div class="mb-3">
+            <label for="Contraseña">Escribe tu contraseña</label>
+            <h5>{{ users.contrasena }}</h5>
+        </div>
+        <div class="mb-3">
+            <label for="Direccion">Escribe tu direccion</label>
+            <h5>{{ clientes.direccion }}</h5>
+        </div>
+        <div class="mb-3">
+            <label for="Informacion de envio">Escribe tu informacion de envio</label>
+            <h5>{{ clientes.informacion_envio }}</h5>
+        </div>
+        <div class="mb-3">
+            <label for="Numero de Tarjeta">Escribe tu numero de tarjeta</label>
+            <h5>{{ clientes.tarjeta }}</h5>
+        </div>
+        <div class="mb-3">
+            <label for="Numero Telefonico">Escribe tu numero telefonico</label>
+            <h5>{{ clientes.numero }}</h5>
+        </div>
+    </div>
+    <a href="{{ url_for('clientes.updateclient', id = usuarios.id) }}" class="btn bg-black
+                        text-white btn-sm rounded-0">Actualizar datos</a>
+</form>

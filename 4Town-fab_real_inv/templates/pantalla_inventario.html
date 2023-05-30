@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Inventario</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        .flash {
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #f0f0f0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Inventario</h1>
+        <br>
+        <h2>Insumos</h2>
+        <table class="table table-bordered">
+            <thead class="thead-light">
+                <tr>
+                    <th>Id</th>
+                    <th>Nombre</th>
+                    <th>Descripción</th>
+                    <th>Costo</th>
+                    <th>Piezas</th>
+                    <th>Modificar</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for insumo in insumos %}
+                <tr>
+                    <td>{{ insumo.id }}</td>
+                    <td>{{ insumo.nombre }}</td>
+                    <td>{{ insumo.descripcion }}</td>
+                    <td>{{ insumo.costo }}</td>
+                    <td>{{ insumo.piezas }}</td>
+                    <td>
+                        <form action="/inventario/modify" method="post" style="display: inline;">
+                            <input type="hidden" id="id" name="id" value="{{ insumo.id }}">
+                            <button type="submit" class="btn btn-primary">Modificar</button>
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <br>
+        <form action="/inventario/add_insumo" method="get">
+            <button type="submit" class="btn btn-primary">Agregar insumo</button>
+        </form>
+        <br>
+        <br>
+        {% for message in get_flashed_messages() %}
+             <div class="flash">{{ message }}</div>
+        {% endfor %}
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</body>
+</html>
