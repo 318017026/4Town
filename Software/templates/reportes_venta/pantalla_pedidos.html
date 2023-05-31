@@ -1,0 +1,84 @@
+{% extends 'Vendedor/navbar.html' %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Reportes de Venta</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+    {% block content %}
+    <div class="container">
+        <h1>Reportes de Venta</h1>
+        <br>
+        <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#pedidosDiaTable" aria-expanded="false" aria-controls="pedidosDiaTable">
+            Pedidos del día
+        </button>
+        <br><br>
+        <div class="collapse" id="pedidosDiaTable">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>ID Vendedor</th>
+                        <th>ID Cliente</th>
+                        <th>Dirección</th>
+                        <th>Método de Pago</th>
+                        <th>Fecha</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for pedido in pedidosDia %}
+                    <tr>
+                        <td>{{ pedido.id }}</td>
+                        <td>{{ pedido.id_vendedor }}</td>
+                        <td>{{ pedido.id_cliente }}</td>
+                        <td>{{ pedido.direccion }}</td>
+                        <td>{{ pedido.metodoPago }}</td>
+                        <td>{{ pedido.fecha }}</td>
+                        <td>{{ pedido.total }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <br>
+        <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#pedidosSemanaTable" aria-expanded="false" aria-controls="pedidosSemanaTable">
+            Pedidos de la semana
+        </button>
+        <br><br>
+        <div class="collapse" id="pedidosSemanaTable">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>ID Vendedor</th>
+                        <th>ID Cliente</th>
+                        <th>Dirección</th>
+                        <th>Método de Pago</th>
+                        <th>Fecha</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for pedido in pedidosSemana %}
+                    <tr>
+                        <td>{{ pedido.id }}</td>
+                        <td>{{ pedido.id_vendedor }}</td>
+                        <td>{{ pedido.id_cliente }}</td>
+                        <td>{{ pedido.direccion }}</td>
+                        <td>{{ pedido.metodoPago }}</td>
+                        <td>{{ pedido.fecha }}</td>
+                        <td>{{ pedido.total }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    {% endblock %}
+</body>
+</html>

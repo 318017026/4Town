@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Administración</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+<body>
+  <div class="container">
+   
+    <h1>Pantalla de Administrador (ID Usuario: {{id_user}})</h1>
+
+    
+    <div class="row">
+      <div class="col-sm-6">
+        <a href="#ROBERTO" class="btn btn-primary btn-lg btn-block">Administrar Vendedores</a>
+      </div>
+      <div class="col-sm-6">
+        <a href="{{ url_for('readDrink.read') }}" class="btn btn-primary btn-lg btn-block">Administrar Bebidas</a>
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="col-sm-6">
+        <a href="#JUAN MANUEL" class="btn btn-primary btn-lg btn-block">Consultar Inventario de Insumos</a>
+      </div>
+      <div class="col-sm-6">
+        <a href="#TANIA" class="btn btn-primary btn-lg btn-block">Consultar Reporte de Venta</a>
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="col-sm-6">
+        <a href="#TANIA" class="btn btn-primary btn-lg btn-block">Consultar Clientes</a>
+      </div>
+      <div class="col-sm-6">
+        <a href="#INDEFINIDO" class="btn btn-primary btn-lg btn-block">Buscar Cliente</a>
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="col-sm-12">
+        <a href="{{ url_for('login.login') }}" class="btn btn-danger btn-lg btn-block">Cerrar Sesión</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
