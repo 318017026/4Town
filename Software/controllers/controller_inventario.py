@@ -95,6 +95,7 @@ def add_insumo():
         return redirect(url_for('inventario.inventario'))
     else:
         return render_template('realizar_inventario/agregar_insumo.html')
+<<<<<<< HEAD
 
 @inventario_bp.route('/inventario_insumos', methods=['POST', 'GET'])
 def read_insumos():
@@ -103,3 +104,11 @@ def read_insumos():
     insumos = session.query(Insumo).all()
     # Redirigir a pantalla de inventario
     return render_template('realizar_inventario/inventario_insumo.html', insumos=insumos)
+=======
+  
+@inventario_bp.route('/inventario', methods=['POST'])
+def read_insumos():
+    session = db.session
+    insumos = session.query(Insumo).all()
+    return render_template('realizar_inventario/inventario_insumo.html', insumos=insumos)
+>>>>>>> f1562b62b0199ef7aaa62dfdb1c4e89603c1a2ce

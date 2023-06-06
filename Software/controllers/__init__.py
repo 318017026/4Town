@@ -28,12 +28,21 @@ from alchemy_classes.Cliente import Cliente
 from models.model_pedido import crearPedido, enlistaPedidosVendedor, enlistaPedidosCliente
 
 # Importaciones de Venta
+<<<<<<< HEAD
 from models.model_venta import generaVentas, obtener_ventas, obtener_ventas_eliminados
 # Importaciones de Insumo
 from models.model_insumo import enlistaInsumos, getInsumo, modificaInsumo, insertaInsumo
 from alchemy_classes.Insumo import Insumo
 
 from alchemy_classes.Venta import Venta
+=======
+from models.model_venta import generaVentas
+from alchemy_classes.Venta import Venta
+
+# Importaciones de Insumo
+from models.model_insumo import enlistaInsumos, getInsumo, modificaInsumo, insertaInsumo
+from alchemy_classes.Insumo import Insumo
+>>>>>>> f1562b62b0199ef7aaa62dfdb1c4e89603c1a2ce
 
 # Importaciones de Credencial
 from alchemy_classes.Credencial import Credencial
