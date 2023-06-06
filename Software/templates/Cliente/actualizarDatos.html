@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+CTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -32,10 +32,22 @@
                     <input type="text" name="apellidoM" placeholder="Escribe tu Apellido Materno" value="{{ users.apellidoM }}"
                     class="form-control rounded-0 bg-dark border-0 text-white"/>
                 </div>
-                <div class="mb-3">
-                    <label for="Fecha de Nacimiento">Escribe tu Fecha de Nacimiento en forma AAAAMMDD</label>
-                    <input type="text" name="fechaNac" placeholder="Fecha de nacimiento YYYY-MM-DD" value="{{ users.fechaNacimiento }}" 
-                    class="form-control rounded-0 bg-dark border-0 text-white"/>
+                <div class="d-flex justify-content-between">
+                    <div class="mb-3">
+                        <label for="Fecha de Nacimiento">Dia de Nacimiento</label>
+                        <input type="text" name="diaNac" placeholder="DD" value="{{ fechas.dia }}" 
+                        class="form-control rounded-0 bg-dark border-0 text-white"/>
+                    </div>
+                    <div class="mb-3">
+                        <label for="Fecha de Nacimiento">Mes de Nacimiento</label>
+                        <input type="text" name="mesNac" placeholder="MM" value="{{ fechas.mes }}" 
+                        class="form-control rounded-0 bg-dark border-0 text-white"/>
+                    </div>
+                    <div class="mb-3">
+                        <label for="Fecha de Nacimiento">Año de Nacimiento</label>
+                        <input type="text" name="anioNac" placeholder="AAAA" value="{{ fechas.año }}" 
+                        class="form-control rounded-0 bg-dark border-0 text-white"/>
+                    </div>
                 </div>
                 <div class="mb-3">
                     <label for="Correo Electronico">Escribe tu Correo Electronico</label>
