@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>{% block title %}Vendedor{% endblock %}</title>
+    <title>{% block title %}Bebidas{% endblock %}</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="styles.css">
   </head>
-  
+
   <body>
     <header>
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="{{ url_for('vendedor') }}">Las miches </a>
+        <a class="navbar-brand" href="{{ url_for('administrador') }}">Las Miches</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -17,20 +17,27 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="{{ url_for('inventario.inventario') }}">Realizar Inventario</a>
+              <a class="nav-link" href="{{ url_for('readSellers.read_seller') }}" >Administrar Vendedores</a>
             </li>
             <li class="nav-item active">
-              <a class="nav-link" href="{{ url_for('venta.venta') }}">Reportar Venta</a>
+              <a class="nav-link" href="{{ url_for('readDrink.read') }}">Administrar Bebidas</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="{{ url_for('inventario.read_insumos') }}">Consultar Inventario de Insumos</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="{{ url_for('reporte_venta.reporteVenta') }}">Consultar Reporte de Venta</a>
             </li>
             <li class="nav-item active">
               <a class="nav-link" href="{{ url_for('consultar_cliente.consultarCliente') }}">Consultar Clientes</a>
             </li>
             <li class="nav-item active">
-              <a class="nav-link" href="{{ url_for('clientes.buscar_vendedor') }}">Buscar Cliente</a>
+              <a class="nav-link" href="{{ url_for('clientes.buscar') }}">Buscar Clientes</a>
             </li>
             <li class="nav-item active">
               <a class="nav-link" href="{{ url_for('login.login') }}">Cerrar Sesion</a>
-            </li>   
+            </li>
+            <!--Más botones-->    
           </ul>
         </div>
       </nav>
@@ -45,4 +52,3 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
   </body>
 </html>
-

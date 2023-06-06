@@ -1,0 +1,73 @@
+{% extends 'partials/barra_administrador.html' %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Reporte Venta</title>
+	<style>
+		table {
+			border-collapse: collapse;
+			margin: 0 auto;
+			text-align: center;
+			font-family: Arial, sans-serif;
+			font-size: 14px;
+			border: 2px solid #ddd;
+		}
+		th, td {
+			padding: 8px;
+			border: 1px solid #ddd;
+		}
+		th {
+			background-color: #f2f2f2;
+			font-weight: bold;
+		}
+	</style>
+</head>
+{% block content %}
+<body>
+  <div class="container">
+		<h1>Reporte Venta</h1>
+		<table class="table">
+    <thead>
+        <tr>
+            <td> ID Venta </td>
+            <td> ID Pedido </td>
+            <td> ID Bebida </td>
+            <td> Bebida </td>
+            <td> Costo </td>
+        </tr>
+    </thead>
+    <tbody>
+        {% if nv != 0 %}
+            {% for venta in ventas %}
+            <tr>
+                <td>{{ venta.id }}</td>
+                <td>{{ venta.id_pedido }}</td>
+                <td>{{ venta.id_bebida }}</td>
+            </tr>
+            {% endfor %}
+        {% endif %}
+    
+        {% if nve != 0 %}
+            {% for ventaEliminada in ventasEliminadas %}
+            <tr>
+                <td>{{ ventaEliminada.id }}</td>
+                <td>{{ ventaEliminada.id_pedido }}</td>
+                <td>{{ ventaEliminada.bebida }}</td>
+                <td>{{ ventaEliminada.costo }}</td>
+            </tr>
+            {% endfor %}
+        {% endif %}
+    </tbody>
+    
+</table>
+</div>
+
+
+	<!-- Agregar los archivos JS de Bootstrap -->
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+{% endblock %}
+</html>
+

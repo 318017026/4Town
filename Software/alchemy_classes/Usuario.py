@@ -3,7 +3,7 @@ from alchemy_classes.__init__ import db
 '''
 Clase Usuario representa una entidad de la base de datos
 '''
-class Usuario(db.Model):
+class Usuario(db.Model): # type: ignore
     __tablename__ = 'Usuario'
     id = db.Column(db.Integer, primary_key = True)
     username = db.Column(db.String(50), nullable = False)

@@ -3,6 +3,9 @@ from controllers.__init__ import enlistaPedidosCliente
 
 status_pedido_bp = Blueprint('status_pedido', __name__, url_prefix='/status_pedido')
 
+"""
+Método que enlista los productos del cliente y le muestra el estatus en el que se encuentra
+"""
 @status_pedido_bp.route('/', methods = ['GET'])
 def status_pedido():
     if session.get('usuario') == None:

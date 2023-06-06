@@ -22,3 +22,9 @@ from alchemy_classes.Pedido import Pedido
 
 # Importaciones de Clase Venta
 from alchemy_classes.Venta import Venta
+
+# Importaciones de Clase Vendedor
+from alchemy_classes.Vendedor import Vendedor
+
+# Importaciones de Clase Venta Eliminados
+from alchemy_classes.VentaEliminados import VentaEliminados

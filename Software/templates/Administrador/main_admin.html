@@ -6,34 +6,30 @@
 </head>
 <body>
   <div class="container">
-   
-    <h1>Pantalla de Administrador (ID Usuario: {{id_user}})</h1>
-
-    
     <div class="row">
       <div class="col-sm-6">
-        <a href="#ROBERTO" class="btn btn-primary btn-lg btn-block">Administrar Vendedores</a>
+        <a href="{{ url_for('readSellers.read_seller') }}" class="btn btn-primary btn-lg btn-block">Administrar Vendedores</a>
       </div>
       <div class="col-sm-6">
         <a href="{{ url_for('readDrink.read') }}" class="btn btn-primary btn-lg btn-block">Administrar Bebidas</a>
       </div>
-    </div>
-    
+    </div> 
+
     <div class="row">
       <div class="col-sm-6">
-        <a href="#JUAN MANUEL" class="btn btn-primary btn-lg btn-block">Consultar Inventario de Insumos</a>
+        <a href="{{ url_for('inventario.read_insumos') }}" class="btn btn-primary btn-lg btn-block">Consultar Inventario de Insumos</a>
       </div>
       <div class="col-sm-6">
-        <a href="#TANIA" class="btn btn-primary btn-lg btn-block">Consultar Reporte de Venta</a>
+        <a href="{{ url_for('reporte_venta.reporteVenta') }}" class="btn btn-primary btn-lg btn-block">Consultar Reporte de Venta</a>
       </div>
     </div>
-    
+
     <div class="row">
       <div class="col-sm-6">
-        <a href="#TANIA" class="btn btn-primary btn-lg btn-block">Consultar Clientes</a>
+        <a href="{{ url_for('consultar_cliente.consultarCliente') }}" class="btn btn-primary btn-lg btn-block">Consultar Clientes</a>
       </div>
       <div class="col-sm-6">
-        <a href="#INDEFINIDO" class="btn btn-primary btn-lg btn-block">Buscar Cliente</a>
+        <a href="{{ url_for('clientes.buscar') }}" class="btn btn-primary btn-lg btn-block">Buscar Cliente</a>
       </div>
     </div>
     

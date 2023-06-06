@@ -3,7 +3,10 @@ from controllers.__init__ import getCliente, crearPedido, generaVentas, obtener_
 
 pedido_bp = Blueprint('pedido', __name__, url_prefix='/pedido')
 
-@pedido_bp.route('/', methods=['GET','POST'])
+"""
+Éste método muestra en pantalla los pedidos elegidos y un botón para confirmar
+"""
+@pedido_bp.route('/', methods=['GET'])
 def pedido():
     if session.get('usuario') == None: # No se ha iniciado sesión
         flash("Error: no se ha iniciado sesión")
@@ -11,15 +14,20 @@ def pedido():
     if session.get('credencial') != 10: # No es un cliente
         flash("Error: no permitido")
         return "No permitido" # Redirigir a otra página
-    id_bebidas = session.get('bebidas') # Hay que guardar una lista con los ids de los productos seleccionados / añadidos al carrito
+    if request.method == 'GET':
+        id_bebidas = [1231,1231,1232,1232] # session.get('bebidas')
+                    # Hay que guardar una lista con los ids de los productos seleccionados / añadidos al carrito
                     # Hay que mandar un request a ésta página con la lista de ids seleccionados
                     # cuando se haga, hay que cambiar session.get('bebidas') por donde se almacene esta lista. 
-    if id_bebidas == None:
-        flash("Error: no se ha seleccionado productos") # Debe conectarse con el de visualizar producto
-        return "No se han seleccionado productos"
-    bebidas = obtener_bebidas_por_id(id_bebidas)
-    return render_template('hacer_pedido/hacer_pedido.html', bebidas = bebidas)
-    
+        if id_bebidas == None:
+            flash("Error: no se ha seleccionado productos") # Debe conectarse con el de visualizar producto
+            return "No se han seleccionado productos"
+        bebidas = obtener_bebidas_por_id(id_bebidas)
+        return render_template('hacer_pedido/hacer_pedido.html', bebidas = bebidas, id_user=session.get('usuario'))
+
+"""
+Éste método registra el pedido
+"""
 @pedido_bp.route('/hacer_pedido', methods=['POST'])
 def hacer_pedido():
     if session.get('usuario') == None: # No se ha iniciado sesión
@@ -37,4 +45,4 @@ def hacer_pedido():
     nuevo_pedido = crearPedido(cliente.id, cliente.direccion, metodoPago)
     generaVentas(nuevo_pedido.id, id_bebidas)
     flash("Pedido creado exitosamente")
-    return "Pedido creado exitosamente" # Debe mandar a otra página
+    return render_template('Cliente/layout.html', id_user=session.get('usuario')) # Debe mandar a otra página

@@ -1,8 +1,9 @@
-{% extends 'partials/barra_base_bebidas.html' %}
+{% extends 'partials/barra_administrar_vendedores.html' %}
+
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Bebidas</title>
+	<title>Productos</title>
 	<style>
 		table {
 			border-collapse: collapse;
@@ -25,29 +26,30 @@
 {% block content %}
 <body>
   <div class="container">
-		<h1>Bebidas</h1>
+		<h1>Lista de Vendedores</h1>
 		<table class="table">
   <thead>
     <tr>
       <th>id</th>
       <th>Nombre</th>
-      <th>Descripción</th>
-      <th>Costo</th>
-      <th>Ventas</th>
-      <th>Acciones</th>
+      <th>Apellido Paterno</th>
+      <th>Apellido Materno</th>
+      <th>Fecha de Nacimiento</th>
+      <th>Correo</th>
     </tr>
   </thead>
   <tbody>
-    {% for producto in bebidas %}
+    {% for vendedor in vendedores %}
     <tr>
-      <td>{{ producto.id }}</td>
-      <td>{{ producto.nombre }}</td>
-      <td>{{ producto.descripcion }}</td>
-      <td>${{ producto.costo }} MNX</td>
-      <td>{{ producto.ventas }}</td>
+      <td>{{ vendedor.id }}</td>
+      <td>{{ vendedor.nombre}}</td>
+      <td>{{ vendedor.apellidoP}}</td>
+      <td>{{ vendedor.apellidoM}}</td>
+      <td>{{ vendedor.fechaNacimiento}}</td>
+      <td>{{ vendedor.correo}}</td>
       <td>
-        <button id="boton-actualizar" onclick="actualizar({{producto.id}})">Editar</button>
-        <button id="boton-eliminar" onclick="eliminar({{producto.id}})">Eliminar</button>
+        <button id="boton-actualizar" onclick="actualizar({{vendedor.id}})">Editar</button>
+        <button id="boton-eliminar" onclick="eliminar({{vendedor.id}})">Eliminar</button>
       </td>
     </tr>
     {% endfor %}
@@ -56,8 +58,8 @@
 </div>
   <script>
     function eliminar(id) {
-      if (confirm("¿Está seguro que quieres eliminar la bebida con id = " + id + "?")) {
-        var url = "{{ url_for('deleteDrink.delete', id=0) }}";
+      if (confirm("¿Está seguro que quieres eliminar el vendedor con id = " + id + "?")) {
+        var url = "{{ url_for('deleteSeller.delete_seller', id=0) }}";
         url = url.replace('0', id);
         window.location.href = url;
       } else {
@@ -65,8 +67,8 @@
       }
     }
     function actualizar(id) {
-      if(confirm("¿Está seguro que quiere actualizar la bebida con id = "+ id+ "?")){
-        var url = "{{ url_for('updateDrink.update', id=0) }}";
+      if(confirm("¿Está seguro que quiere actualizar el vendedor con id = "+ id+ "?")){
+        var url = "{{ url_for('updateSeller.update_seller', id=0) }}";
         url = url.replace('0', id);
         window.location.href = url;
       }else{
@@ -82,5 +84,4 @@
 </body>
 {% endblock %}
 </html>
-
 

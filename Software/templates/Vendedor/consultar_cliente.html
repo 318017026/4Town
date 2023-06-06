@@ -1,0 +1,64 @@
+{% extends 'Vendedor/navbar.html' %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Clientes</title>
+	<style>
+		table {
+			border-collapse: collapse;
+			margin: 0 auto;
+			text-align: center;
+			font-family: Arial, sans-serif;
+			font-size: 14px;
+			border: 2px solid #ddd;
+		}
+		th, td {
+			padding: 8px;
+			border: 1px solid #ddd;
+		}
+		th {
+			background-color: #f2f2f2;
+			font-weight: bold;
+		}
+	</style>
+</head>
+{% block content %}
+<body>
+  <div class="container">
+		<h1>Consultar Cliente</h1>
+		<table class="table">
+  <thead>
+    <tr>
+      <th>id</th>
+      <th>Nombre</th>
+      <th>Apellido Paterno</th>
+      <th>Apellido Materno</th>
+      <th>Fecha de Nacimiento</th>
+      <th>Correo </th>
+      <th>Direccion</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for cliente in clientes %}
+    <tr>
+      <td>{{ cliente.id }}</td>
+      <td>{{ cliente.nombre }}</td>
+      <td>{{ cliente.apellidoP }}</td>
+      <td>{{ cliente.apellidoM }} </td>
+      <td>{{ cliente.fechaNacimiento}} </td>
+      <td>{{ cliente.correo}} </td>
+      <td>{{ cliente.direccion}} </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+</div>
+
+
+	<!-- Agregar los archivos JS de Bootstrap -->
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+{% endblock %}
+</html>

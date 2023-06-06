@@ -18,7 +18,13 @@ from controllers.controller_pedido import pedido_bp
 from controllers.controller_status_pedido import status_pedido_bp
 
 # Importaciones de Controlador Reportes de Venta
-from controllers.controller_venta import venta_bp
+from controllers.controller_venta import venta_bp, reporteVenta_bp
 
 # Importaciones de Controlador Cliente
 from controllers.rutas import clientes
+
+# Importaciones de Controlador Vendedor
+from controllers.controller_administrar_vendedores import readSellerBluePrint, createSellerBluePrint, deleteSellerBluePrint, updateSellerBluePrint
+
+#Importancion de Controlador Clientes
+from controllers.controller_cliente import consultarCliente_bp

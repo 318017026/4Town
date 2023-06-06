@@ -6,17 +6,6 @@
 </head>
 <body>
   <div class="container">
-    <h1>Pantalla de Vendedor  (ID Usuario: {{id_user}})</h1>
-    
-    <div class="row">
-      <div class="col-sm-6">
-        <a href="#TANIA" class="btn btn-primary btn-lg btn-block">Actualizar Contraseña</a>
-      </div>
-      <div class="col-sm-6">
-        <a href="#ROBERTO" class="btn btn-primary btn-lg btn-block">Visualizar Pedidos</a>
-      </div>
-    </div>
-    
     <div class="row">
       <div class="col-sm-6">
         <a href="{{ url_for('inventario.inventario') }}" class="btn btn-primary btn-lg btn-block">Realizar Inventario</a>
@@ -25,19 +14,14 @@
         <a href="{{ url_for('venta.venta') }}" class="btn btn-primary btn-lg btn-block">Reportar Venta</a>
       </div>
     </div>
-    
     <div class="row">
       <div class="col-sm-6">
-        <a href="#JUAN MANUEL" class="btn btn-primary btn-lg btn-block">Actualizar Estatus de Pedidos</a>
-      </div>
-      <div class="col-sm-6">
-        <a href="#TANIA" class="btn btn-primary btn-lg btn-block">Consultar Clientes</a>
+        <a href="{{ url_for('consultar_cliente.consultarCliente') }}" class="btn btn-primary btn-lg btn-block">Consultar Clientes</a>
       </div>
     </div>
-    
     <div class="row">
       <div class="col-sm-6">
-        <a href="#TANIA" class="btn btn-primary btn-lg btn-block">Buscar Cliente</a>
+        <a href="{{ url_for('clientes.buscar_vendedor') }}" class="btn btn-primary btn-lg btn-block">Buscar Cliente</a>
       </div>
       <div class="col-sm-6">
         <a href="{{ url_for('login.login') }}" class="btn btn-danger btn-lg btn-block">Cerrar Sesión</a>
