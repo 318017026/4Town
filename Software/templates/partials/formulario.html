@@ -11,6 +11,18 @@
       crossorigin="anonymous"/>
 </head>
 
+{% with messages = get_flashed_messages() %}
+    
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-danger" role="alert">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endif %}
+
+{% endwith %}
+
 <div class="col-md-4 offset-md-4">
     <div class="card card-body bg-dark text-white">
       <h1>Inserta tus Datos</h1>
@@ -20,52 +32,64 @@
             <div class="card-body p-4">
                 <div class="mb-3">
                     <label for="Nombre(s)">Escribe tu(s) nombre(s)</label>
-                    <input type="text" name="nombre" placeholder="Nombre(s)" class="form-control rounded-0
-                    bg-dark border-0 text-white"/>
+                    <input type="text" name="nombre" placeholder="Nombre(s)"  value="{{ nombre }}"
+                    class="form-control rounded-0 bg-dark border-0 text-white"/>
                 </div>
                 <div class="mb-3">
                     <label for="Apellido Paterno">Escribe tu apellido paterno</label>
-                    <input type="text" name="apellidoP" placeholder="Apellido Paterno" class="form-control rounded-0
+                    <input type="text" name="apellidoP" placeholder="Apellido Paterno" value="{{ apellidoP }}"class="form-control rounded-0
                     bg-dark border-0 text-white"/>
                 </div>
                 <div class="mb-3">
                     <label for="Apellido Materno">Escribe tu apellido materno</label>
-                    <input type="text" name="apellidoM" placeholder="Apellido Materno" class="form-control rounded-0
+                    <input type="text" name="apellidoM" placeholder="Apellido Materno" value="{{ apellidoM }}" class="form-control rounded-0
                     bg-dark border-0 text-white"/>
                 </div>
-                <div class="mb-3">
-                    <label for="Fecha de Nacimiento">Escribe tu Fecha de Nacimiento en forma AAAAMMDD</label>
-                    <input type="text" name="fechaNac" placeholder="Fecha de Nacimiento (AAAAMMDD)" class="form-control rounded-0
-                    bg-dark border-0 text-white"/>
+                <div class="d-flex justify-content-between">
+                    <div class="mb-3">
+                        <label for="Fecha de Nacimiento">Dia de Nacimiento</label>
+                        <input type="text" name="diaNac" placeholder="DD" value="{{ diaNac }}"
+                        class="form-control rounded-0 bg-dark border-0 text-white"/>
+                    </div>
+                    <div class="mb-3">
+                        <label for="Fecha de Nacimiento">Mes de Nacimiento</label>
+                        <input type="text" name="mesNac" placeholder="MM" value="{{ mesNac }}"
+                        class="form-control rounded-0 bg-dark border-0 text-white"/>
+                    </div>
+                    <div class="mb-3">
+                        <label for="Fecha de Nacimiento">Año de Nacimiento</label>
+                        <input type="text" name="anioNac" placeholder="AAAA" value="{{ anioNac }}"
+                        class="form-control rounded-0 bg-dark border-0 text-white"/>
+                    </div>
                 </div>
                 <div class="mb-3">
                     <label for="Correo Electronico">Escribe tu Correo Electronico</label>
-                    <input type="text" name="correo" placeholder="Correo Electronico" class="form-control rounded-0
+                    <input type="text" name="correo" placeholder="Correo Electronico" value="{{ correo }}" class="form-control rounded-0
                     bg-dark border-0 text-white"/>
                 </div>
                 <div class="mb-3">
                     <label for="Contraseña">Escribe tu contraseña</label>
-                    <input type="text" name="contra" placeholder="Contraseña" class="form-control rounded-0
+                    <input type="text" name="contra" placeholder="Contraseña" value="{{ contra }}" class="form-control rounded-0
                     bg-dark border-0 text-white"/>
                 </div>
                 <div class="mb-3">
                     <label for="Direccion">Escribe tu direccion</label>
-                    <input type="text" name="direcc" placeholder="Direccion" class="form-control rounded-0
+                    <input type="text" name="direcc" placeholder="Direccion" value="{{ direcc }}" class="form-control rounded-0
                     bg-dark border-0 text-white"/>
                 </div>
                 <div class="mb-3">
                     <label for="Informacion de envio">Escribe tu informacion de envio</label>
-                    <input type="text" name="infoenv" placeholder="Informacion de envio" class="form-control rounded-0
+                    <input type="text" name="infoenv" placeholder="Informacion de envio" value="{{ infoenv }}" class="form-control rounded-0
                     bg-dark border-0 text-white"/>
                 </div>
                 <div class="mb-3">
                     <label for="Numero de Tarjeta">Escribe tu numero de tarjeta</label>
-                    <input type="text" name="tarj" placeholder="Numero de Tarjeta" class="form-control rounded-0
+                    <input type="text" name="tarj" placeholder="Numero de Tarjeta" value="{{ tarj }}" class="form-control rounded-0
                     bg-dark border-0 text-white"/>
                 </div>
                 <div class="mb-3">
                     <label for="Numero Telefonico">Escribe tu numero telefonico</label>
-                    <input type="text" name="numtel" placeholder="Numero Telefonico" class="form-control rounded-0
+                    <input type="text" name="numtel" placeholder="Numero Telefonico" value="{{ numtel }}" class="form-control rounded-0
                     bg-dark border-0 text-white"/>
                 </div>
                 <button class="btn btn-primary">Guardar</button>
