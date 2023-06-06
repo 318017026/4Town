@@ -28,10 +28,11 @@ from models.model_pedido import crearPedido, enlistaPedidosVendedor, enlistaPedi
 
 # Importaciones de Venta
 from models.model_venta import generaVentas
+from alchemy_classes.Venta import Venta
 
 # Importaciones de Insumo
 from models.model_insumo import enlistaInsumos, getInsumo, modificaInsumo, insertaInsumo
-from alchemy_classes.Venta import Venta
+from alchemy_classes.Insumo import Insumo
 
 # Importaciones de Credencial
 from alchemy_classes.Credencial import Credencial
