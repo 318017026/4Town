@@ -1,24 +1,3 @@
-<form action="/consultar_cliente"   method="POST"> 
-    <input type="text" name="nombre" placeholder="Nombre del Cliente"> 
-    <button type="submit">
-        Consultar
-    </button>    
-</form>
-
-<form action="/consultar_cliente"   method="POST"> 
-    <input type="text" name="apellidoP" placeholder="Apellido Paterno del Cliente"> 
-    <button type="submit">
-        Consultar
-    </button>    
-</form>
-
-<form action="/consultar_cliente"   method="POST"> 
-    <input type="text" name="edad" placeholder="Edad del Cliente"> 
-    <button type="submit">
-        Consultar
-    </button>    
-</form>
-
 <table>
     <thead>
         <tr>
@@ -43,3 +22,34 @@
         {% endfor %}
     </tbody>
 </table>
+
+<body>
+    <p align = 'right'><b> Puede filtrar la búsqueda con alguno de los siguientes datos:</b></p>    
+</body>
+<form action="/consultar_cliente"   method="POST"> 
+    <p align="right">
+    <input type="text" name="nombre" placeholder="Nombre del Cliente"> 
+    <button type="submit">
+        Consultar
+    </button>  
+    </p>  
+</form>
+
+<form action="/consultar_cliente"   method="POST"> 
+    <p align="right">
+    <input type="text" name="apellidoP" placeholder="Apellido Paterno del Cliente"> 
+    <button type="submit">
+        Consultar
+    </button>    
+    </p>
+</form>
+
+<form action="/consultar_cliente"   method="POST"> 
+    <p align="right">
+    <input type="text" name="edad" placeholder="Edad del Cliente"> 
+    <button type="submit">
+        Consultar
+    </button>   
+    </p>    
+</form>
+
