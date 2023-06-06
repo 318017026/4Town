@@ -32,10 +32,22 @@
                     <input type="text" name="apellidoM" placeholder="Apellido Materno" value="{{ users.apellidoM }}"
                         class="form-control rounded-0 bg-dark border-0 text-white" readonly/>
                 </div>
-                <div class="mb-3">
-                    <label for="Fecha de Nacimiento">Fecha de Nacimiento</label>
-                    <input type="text" name="fechaNac" placeholder="Fecha de nacimiento YYYY-MM-DD" value="{{ users.fechaNacimiento }}"
+                <div class="d-flex justify-content-between">
+                    <div class="mb-3">
+                        <label for="Fecha de Nacimiento">Dia de Nacimiento</label>
+                        <input type="text" name="diaNac" placeholder="DD" value="{{ fechas.dia }}" 
                         class="form-control rounded-0 bg-dark border-0 text-white" readonly/>
+                    </div>
+                    <div class="mb-3">
+                        <label for="Fecha de Nacimiento">Mes de Nacimiento</label>
+                        <input type="text" name="mesNac" placeholder="MM" value="{{ fechas.mes }}" 
+                        class="form-control rounded-0 bg-dark border-0 text-white" readonly/>
+                    </div>
+                    <div class="mb-3">
+                        <label for="Fecha de Nacimiento">Año de Nacimiento</label>
+                        <input type="text" name="anioNac" placeholder="AAAA" value="{{ fechas.año }}" 
+                        class="form-control rounded-0 bg-dark border-0 text-white" readonly/>
+                    </div>
                 </div>
                 <div class="mb-3">
                     <label for="Correo Electronico">Correo Electronico</label>
@@ -68,14 +80,9 @@
                         class="form-control rounded-0 bg-dark border-0 text-white" readonly/>
                 </div>
             </div>
-            <div class="d-flex justify-content-between">
-                <div>
-                    <a href="{{ url_for('clientes.updateclient', id = users.id)  }}" class="btn btn-black text-white">Actualizar</a>
-                    <a href="{{ url_for('clientes.deleteclient', id = users.id ) }}" onclick="eliminar({{users.id}})" 
-                    class="btn btn-danger">Eliminar</a>
-                </div>
-            </div>
+            <a href="{{ url_for('clientes.updateclient', id = users.id)  }}" class="btn btn-success">Actualizar</a>
             <a href="{{ url_for('cliente') }}" class="btn btn-primary">Volver</a>
+            <a href="{{ url_for('clientes.deleteclient', id = users.id ) }}" onclick="eliminar({{users.id}})" class="btn btn-danger">Eliminar</a>   
         </form>
     </div>
 </div>
