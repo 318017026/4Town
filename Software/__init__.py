@@ -22,3 +22,6 @@ from controllers.controller_venta import venta_bp
 
 # Importaciones de Controlador Cliente
 from controllers.rutas import clientes
+
+# Importaciones de Controlador Vendedor
+from controllers.controller_administrar_vendedores import readSellerBluePrint, createSellerBluePrint, deleteSellerBluePrint, updateSellerBluePrint

@@ -4,6 +4,7 @@ from alchemy_classes.__init__ import db
 Clase Bebida representa una entidad de la base de datos
 '''
 class Bebida(db.Model):
+    __tablename__='Bebida'
     id = db.Column('id',db.INTEGER, primary_key=True, nullable = False)
     nombre = db.Column('nombre', db.String(30), nullable = False) 
     descripcion = db.Column('descripcion', db.String(100), nullable = False)

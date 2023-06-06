@@ -14,7 +14,8 @@ from models.CRUD_Bebida_M import agregar_bebida, obtener_bebidas, eliminar_bebid
 from models.Usuario_M import getUserByEmail, getUserByName, getCrendential, deactivate_user, activate_user
 from alchemy_classes.Usuario import Usuario
 # Importaciones de Vendedor
-# NONE
+from models.model_vendedor import obtener_vendedores, eliminar_vendedor, obtener_vendedor_por_id, actualizar_vendedor
+from alchemy_classes.Vendedor import Vendedor
 
 # Importaciones de Administrador
 # NONE

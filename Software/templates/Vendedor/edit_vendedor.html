@@ -1,0 +1,92 @@
+{% extends 'partials/barra_base_bebidas.html' %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Actualizar Producto</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+{% block content %}
+<body>
+	<div class="container">
+		<h1>Actualizar Vendedor</h1>
+		<form action="{{ url_for('updateSeller.update_seller', id=id_p) }}" method="post">
+			<div class="form-group">
+				<label for="id">ID:</label>
+				<input type="text" class="form-control" id="id" name="id" placeholder="{{id_p}}" readonly>
+			</div>
+			<div class="form-group">
+				<label for="nombre">Nombre:</label>
+				<input type="text" class="form-control" id="nombre" name="nombre" placeholder="{{nombre_p}}">
+			</div>
+			<div class="form-group">
+				<label for="username">Username:</label>
+				<input type="text" class="form-control" id="username" name="username" placeholder="{{username_p}}">
+			</div>
+            <div class="form-group">
+				<label for="apellidoPa">Apellido Paterno:</label>
+				<input type="text" class="form-control" id="apellidoPa" name="apellidoPa" placeholder="{{apellido_Pa_p}}">
+			</div>
+            <div class="form-group">
+				<label for="apellidoMa">Apellido Materno:</label>
+				<input type="text" class="form-control" id="apellidoMa" name="apellidoMa" placeholder="{{apellido_Ma_p}}">
+			</div>
+			<div class="form-group">
+				<label for="descripcion">Fecha de Nacimiento:</label>
+				<textarea type="text" class="form-control" id="fechaNacimiento" name="fechaNacimiento" placeholder="{{fecha_Nacimiento_p}}"></textarea>
+			</div>
+			<div class="form-group">
+				<label for="costo">Correo:</label>
+				<input type="text"  class="form-control" id="correo" name="correo" placeholder="{{correo_p}}">
+			</div>
+            <div class="form-group">
+				<label for="contraseña">Contraseña:</label>
+				<input type="text"  class="form-control" id="contrasena" name="contrasena" placeholder="{{contra_p}}">
+			</div>
+			<button type="submit" class="btn btn-primary" onclick='show_alert()'>Guardar</button>
+		</form>
+	</div>
+	<script>
+		function show_alert() {
+			let mensaje = "ALERTA: ¡Se actualizarán los campos:\n ";
+			let contador = 0;
+			var nombre = document.getElementById("nombre").value;
+            var descripcion = document.getElementById("descripcion").value;
+            var costo = document.getElementById("costo").value;
+			var ventas = document.getElementById("ventas").value;
+			if (typeof nombre === 'string' && nombre.length > 0) {
+				mensaje = mensaje.concat("\t Nombre. \n")
+				contador++;
+			}
+			if (typeof descripcion === 'string' && descripcion.length > 0) {
+				mensaje = mensaje.concat("\t Descripción. \n")
+				contador++;
+			}
+			if (typeof costo === 'string' && costo.length > 0) {
+				mensaje = mensaje.concat("\t Costo. \n")
+				contador++;
+			}
+			if (typeof ventas === 'string' && ventas.length > 0) {
+				mensaje = mensaje.concat("\t Ventas. \n ")
+				contador++;
+			}
+			if(contador===0){
+				mensaje = "Alerta: La actualización es redundante. (Acción evitada)\n"+ 
+									"Recomendación: Regrese a 'Ver Productos' sino desea actualizar el registro."
+				alert(mensaje)
+				event.preventDefault();
+			}else{
+				if(confirm(mensaje)){
+				}else{
+					event.preventDefault();
+			}
+		}
+		}
+		</script>	
+
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+</body>
+{% endblock  %}
+</html>

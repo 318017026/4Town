@@ -12,7 +12,7 @@
     
     <div class="row">
       <div class="col-sm-6">
-        <a href="#ROBERTO" class="btn btn-primary btn-lg btn-block">Administrar Vendedores</a>
+        <a href="{{ url_for('readSellers.read_seller') }}" class="btn btn-primary btn-lg btn-block">Administrar Vendedores</a>
       </div>
       <div class="col-sm-6">
         <a href="{{ url_for('readDrink.read') }}" class="btn btn-primary btn-lg btn-block">Administrar Bebidas</a>
@@ -21,7 +21,7 @@
     
     <div class="row">
       <div class="col-sm-6">
-        <a href="{{ url_for('controller_inventario.read_insumos) }}" class="btn btn-primary btn-lg btn-block">Consultar Inventario de Insumos</a>
+        <a href="{{ url_for('inventario.read_insumos') }}" class="btn btn-primary btn-lg btn-block">Consultar Inventario de Insumos</a>
       </div>
       <div class="col-sm-6">
         <a href="#TANIA" class="btn btn-primary btn-lg btn-block">Consultar Reporte de Venta</a>

@@ -15,6 +15,9 @@ from __init__  import venta_bp
 # Importaciones de Controlador Reportes de Venta
 from __init__ import clientes
 
+# Importaciones de Controlador Vendedor
+from __init__ import readSellerBluePrint, createSellerBluePrint, deleteSellerBluePrint, updateSellerBluePrint
+
 # Instacia de apicacion
 app = Flask(__name__)
 # Agregacion de blueprints de Bebida
@@ -33,9 +36,18 @@ app.register_blueprint(pedido_bp)
 app.register_blueprint(status_pedido_bp)
 # Agregacion de blueprint de venta
 app.register_blueprint(venta_bp)
+# Agregacion de blueprint de administracionVendedor
+app.register_blueprint(readSellerBluePrint)
+app.register_blueprint(createSellerBluePrint)
+app.register_blueprint(deleteSellerBluePrint)
+app.register_blueprint(updateSellerBluePrint)
+
+
+
+
 
 # Confuguracion de la app
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:Intheend18*@localhost:3306/ingsoft'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:password@localhost:3306/ingsoft'
 app.config.from_mapping(
     SECRET_KEY='dev'
 )
