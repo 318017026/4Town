@@ -89,3 +89,15 @@ def readclient(id):
     users = Usuario.query.get(id)
     clientes = Cliente.query.get(id)
     return render_template('Cliente/mostrarDatos.html', users=users, clientes=clientes)
+
+@clientes.route("/buscar", methods = ['POST', 'GET'])
+def buscar():
+    if request.method == 'GET':
+        return render_template('buscar_cliente/buscar_cliente.html', cliente=None, users=None)
+    if request.method == 'POST':
+        
+        id = request.form['Id']
+        users = Usuario.query.get(id)
+        cliente = Cliente.query.get(id)
+        return render_template('buscar_cliente/buscar_cliente.html', cliente=cliente, users=users)
+

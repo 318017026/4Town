@@ -21,7 +21,7 @@
     
     <div class="row">
       <div class="col-sm-6">
-        <a href="{{ url_for('controller_inventario.read_insumos) }}" class="btn btn-primary btn-lg btn-block">Consultar Inventario de Insumos</a>
+        <a href="{{ url_for('inventario.read_insumos') }}" class="btn btn-primary btn-lg btn-block">Consultar Inventario de Insumos</a>
       </div>
       <div class="col-sm-6">
         <a href="#TANIA" class="btn btn-primary btn-lg btn-block">Consultar Reporte de Venta</a>
@@ -33,7 +33,7 @@
         <a href="#TANIA" class="btn btn-primary btn-lg btn-block">Consultar Clientes</a>
       </div>
       <div class="col-sm-6">
-        <a href="#INDEFINIDO" class="btn btn-primary btn-lg btn-block">Buscar Cliente</a>
+        <a href="{{ url_for('clientes.buscar') }}" class="btn btn-primary btn-lg btn-block">Buscar Cliente</a>
       </div>
     </div>
     
